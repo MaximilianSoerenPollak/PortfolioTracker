@@ -32,16 +32,10 @@ jobs:
       run: go fmt ./...
       
     - name: Install dependencies
-      run: |
-        cd /home/runner/work/PortfolioTracker 
-        go get .
+      run: go get .
       
     - name: Build
-      run: |
-        cd /home/runner/work/PortfolioTracker 
-        go build -v ./...
+      run: go build -v ./...
       
     - name: Test with the Go CLI
-      run: |
-        cd /home/runner/work/PortfolioTracker
-        go test
+      run: go test

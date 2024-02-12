@@ -20,9 +20,6 @@ jobs:
   audit:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: /home/runner/work/PortfolioTracker/
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Set up Go
@@ -31,13 +28,21 @@ jobs:
         go-version: '1.21'
 
     - name: Run formater
-      run: go fmt ./...
+      run: |
+        cd /home/runner/work/PortfolioTracker
+        go fmt ./...
       
     - name: Install dependencies
-      run: go get .
+      run: |
+        cd /home/runner/work/PortfolioTracker 
+        go get .
       
     - name: Build
-      run: go build -v ./...
+      run: |
+        cd /home/runner/work/PortfolioTracker 
+        go build -v ./...
       
     - name: Test with the Go CLI
-      run: go test
+      run: |
+        cd /home/runner/work/PortfolioTracker
+        go test

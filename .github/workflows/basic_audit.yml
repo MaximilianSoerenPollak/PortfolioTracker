@@ -30,8 +30,11 @@ jobs:
     - name: Run formater
       run: gofmt -s -d -l .
 
+    - name: Change directory
+      run: cd cmd/
+      
     - name: Install dependencies
-      run: go get cmd/go.mod
+      run: go get .
       
     - name: Build
       run: go build -v ./...

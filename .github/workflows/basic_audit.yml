@@ -31,7 +31,7 @@ jobs:
       run: gofmt -s -d -l .
 
     - name: Install dependencies
-      run: go get .
+      run: go get cmd/go.mod
       
     - name: Build
       run: go build -v ./...

@@ -28,7 +28,7 @@ jobs:
         go-version: '1.21'
 
     - name: Run formater
-      run: go fmt ./...
+      run: gofmt -s -d -l .
 
     - name: Run tests
       run: go test -race -vet=off ./...

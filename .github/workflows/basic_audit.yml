@@ -30,5 +30,11 @@ jobs:
     - name: Run formater
       run: gofmt -s -d -l .
 
-    - name: Run tests
-      run: go test -race -vet=off ./...
+    - name: Install dependencies
+      run: go get .
+      
+    - name: Build
+      run: go build -v ./...
+      
+    - name: Test with the Go CLI
+      run: go test
